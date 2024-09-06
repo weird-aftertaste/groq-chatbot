@@ -65,7 +65,7 @@ async def model_command_handler(
     update: Update, context: ContextTypes.DEFAULT_TYPE
 ) -> None:
     """Change the model used to generate responses"""
-    models = ["llama3-8b-8192", "llama3-70b-8192", "mixtral-8x7b-32768", "gemma-7b-it"]
+    models = ["llama-3.1-8b-instant", "llama-3.1-70b-versatile", "gemma2-9b-it", "llama3-8b-8192", "llama3-70b-8192", "mixtral-8x7b-32768", "gemma-7b-it"]
 
     reply_markup = InlineKeyboardMarkup(
         [
@@ -128,7 +128,7 @@ async def get_system_prompt(update: Update, context: ContextTypes.DEFAULT_TYPE) 
 async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Handle messages"""
     if "model" not in context.user_data:
-        context.user_data["model"] = "llama3-8b-8192"
+        context.user_data["model"] = "llama-3.1-8b-instant"
 
     if "messages" not in context.user_data:
         context.user_data["messages"] = []
